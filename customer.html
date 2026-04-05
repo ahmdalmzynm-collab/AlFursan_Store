@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الفرسان - متجر الإطارات والبطاريات وخدمات الكاوتش</title>
+  <meta name="description" content="منصة الفرسان للتجارة الإلكترونية وخدمات الورش - حجز ترصيص، لحام، تركيب إطارات وبطاريات.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="main">
+    <div class="container">
+      <header class="header">
+        <div class="header-content">
+          <div>
+            <p class="header-subtitle">متجر الفرسان</p>
+            <h1 class="header-title">خبرة أكثر من خمسين عامًا في الإطارات والبطاريات وخدمات الورش</h1>
+            <p class="header-description">
+              منصة متكاملة لعرض الإطارات، البطاريات، الكوتش، الجنوط، وأوامر العملاء بشكل منفصل وآمن.
+            </p>
+          </div>
+          <div class="header-info">
+            <div class="info-card">
+              <p class="info-label">الفرع</p>
+              <p class="info-value">بني سويف - شارع عبدالسلام عارف</p>
+            </div>
+            <div class="info-card">
+              <p class="info-label">واتساب</p>
+              <p class="info-value">01003644366</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <div class="header-role">
+            <span class="role-status">صفحة العميل</span>
+          </div>
+          <div class="notice" id="notice">أهلا بك في صفحة العميل. تصفح واطلب الآن.</div>
+        </div>
+      </header>
+
+      <section class="content" id="customer-section">
+        <div class="grid-main">
+          <div class="main-content">
+            <section class="search-section">
+              <div class="search-header">
+                <div>
+                  <h2 class="section-title">أبحث بكل سهولة</h2>
+                  <p class="section-description">فلتر بحسب نوع المنتج، المقاس، أو الشركة المصنعة.</p>
+                </div>
+                <div class="filter-buttons">
+                  <button class="filter-btn active" data-filter="الكل">الكل</button>
+                  <button class="filter-btn" data-filter="جنوط">جنوط</button>
+                  <button class="filter-btn" data-filter="بطاريات">بطاريات</button>
+                  <button class="filter-btn" data-filter="كوتش">كوتش</button>
+                </div>
+              </div>
+
+              <div class="search-input">
+                <input type="text" id="search-input" placeholder="ابحث عن مقاس، شركة، أو نوع المنتج">
+              </div>
+            </section>
+
+            <section class="products-section">
+              <div class="products-grid" id="products-grid">
+                <!-- Products will be inserted here by JS -->
+              </div>
+            </section>
+
+            <section class="services-section">
+              <h2 class="section-title">خدمات الورش المتاحة</h2>
+              <div class="services-grid" id="services-grid">
+                <!-- Services will be inserted here by JS -->
+              </div>
+            </section>
+
+            <section class="service-booking-section hidden" id="service-booking-section">
+              <h2 class="section-title">حجز خدمة الورشة</h2>
+              <div class="booking-card">
+                <div class="booking-header">
+                  <p class="service-booking-label">الخدمة المختارة</p>
+                  <h3 id="booking-service-title" class="service-booking-name">---</h3>
+                  <p id="booking-service-description" class="service-booking-description"></p>
+                </div>
+                <div class="booking-fields">
+                  <label class="booking-field">
+                    <span>الاسم الكامل</span>
+                    <input type="text" id="booking-name" class="form-input" placeholder="اكتب اسمك الكامل">
+                  </label>
+                  <label class="booking-field">
+                    <span>رقم الهاتف</span>
+                    <input type="tel" id="booking-phone" class="form-input" placeholder="010XXXXXXXX">
+                  </label>
+                  <label class="booking-field">
+                    <span>عدد الإطارات / الكوتش</span>
+                    <input type="number" id="booking-quantity" class="form-input" min="1" value="1">
+                  </label>
+                  <label class="booking-field">
+                    <span>ملاحظات إضافية</span>
+                    <textarea id="booking-notes" class="form-input" rows="3" placeholder="مثلاً نوع السيارة أو طلب خاص"></textarea>
+                  </label>
+                </div>
+                <div class="booking-actions">
+                  <button class="checkout-btn" id="confirm-service-btn">تأكيد الحجز</button>
+                  <button class="delete-btn" id="cancel-service-btn" type="button">إلغاء</button>
+                </div>
+                <div class="booking-map-wrapper">
+                  <p class="section-description">موقع الورشة لتسهيل الوصول</p>
+                  <div class="map-container booking-map-container">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.432787854245!2d31.081151315561538!3d29.06862038213191!2m3!1f0!2f0!3f0!3m2!1s0x14583fc4d2f2d12f%3A0x2ab87ddae9f2fc96!2z2YPYsdmD2Kkg2KfZhNi52KfZhiDZg9mE2YYg2KfYqQ!5e0!3m2!1sar!2seg!4v1710000000000!5m2!1sar!2seg"
+                      class="map-iframe"
+                      loading="lazy"
+                      title="موقع الفرسان"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="orders-history-section">
+              <h2 class="section-title">سجل الطلبات</h2>
+              <div class="orders-list" id="customer-orders-list">
+                <p class="empty-orders">لا توجد طلبات سابقة.</p>
+              </div>
+            </section>
+          </div>
+
+          <aside class="sidebar">
+            <div class="cart-section">
+              <h2 class="section-title">عربة التسوق</h2>
+              <div class="cart-items" id="cart-items">
+                <p class="empty-cart">السلة فارغة، أضف منتجات الآن.</p>
+              </div>
+              <div class="cart-total">
+                <p class="total-label">إجمالي السعر:</p>
+                <p class="total-amount" id="total-amount">0 ج.م</p>
+              </div>
+              <button class="checkout-btn" id="checkout-btn">تأكيد الطلب</button>
+              <div class="payment-section">
+                <p class="payment-title">InstaPay</p>
+                <p class="payment-info">حول المبلغ إلى الرقم:</p>
+                <p class="payment-number">01003644366</p>
+                <p class="payment-upload">يمكنك رفع صورة تحويل الدفع هنا:</p>
+                <input type="file" accept="image/*" id="payment-screenshot" class="file-input">
+                <p class="file-selected" id="file-selected"></p>
+              </div>
+              <div class="customer-info-section">
+                <h3 class="section-title">بيانات العميل</h3>
+                <input type="text" id="customer-name" placeholder="الاسم الكامل" class="form-input">
+                <input type="tel" id="customer-phone" placeholder="رقم الهاتف" class="form-input">
+                <textarea id="customer-address" placeholder="العنوان الكامل" class="form-input" rows="3"></textarea>
+              </div>
+            </div>
+
+            <div class="location-section">
+              <h2 class="section-title">الموقع والتواصل</h2>
+              <p class="location-description">
+                العنوان: بني سويف - شارع عبدالسلام عارف - أمام مركز المعلومات.
+              </p>
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.432787854245!2d31.081151315561538!3d29.06862038213191!2m3!1f0!2f0!3f0!3m2!1s0x14583fc4d2f2d12f%3A0x2ab87ddae9f2fc96!2z2YPYsdmD2Kkg2KfZhNi52KfZhiDZg9mE2YYg2KfYqQ!5e0!3m2!1sar!2seg!4v1710000000000!5m2!1sar!2seg"
+                  class="map-iframe"
+                  loading="lazy"
+                  title="موقع الفرسان"
+                ></iframe>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <a href="https://wa.me/201003644366?text=طلب جديد من الفرسان" target="_blank" rel="noreferrer" class="whatsapp-btn">
+      ارسال طلب عبر واتساب
+    </a>
+  </main>
+
+  <script src="script-customer.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الفرسان - لوحة تحكم التاجر</title>
+  <meta name="description" content="لوحة تحكم التاجر لإدارة المنتجات والطلبات.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="main">
+    <div class="container">
+      <header class="header">
+        <div class="header-content">
+          <div>
+            <p class="header-subtitle">لوحة تحكم التاجر</p>
+            <h1 class="header-title">إدارة المنتجات والطلبات</h1>
+            <p class="header-description">
+              أضف المنتجات، عدّل الأسعار، وراقب المخزون بشكل فوري.
+            </p>
+          </div>
+          <div class="header-info">
+            <div class="info-card">
+              <p class="info-label">الفرع</p>
+              <p class="info-value">بني سويف - شارع عبدالسلام عارف</p>
+            </div>
+            <div class="info-card">
+              <p class="info-label">واتساب</p>
+              <p class="info-value">01003644366</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <div class="header-role">
+            <span class="role-status">صفحة التاجر</span>
+          </div>
+          <div class="notice" id="notice">أهلا بك في صفحة التاجر. يمكنك إدارة المنتجات ومتابعة الطلبات.</div>
+        </div>
+      </header>
+
+      <section class="content" id="admin-section">
+        <div class="admin-header">
+          <div>
+            <h2 class="section-title">لوحة تحكم التاجر</h2>
+            <p class="section-description">أضف المنتجات، عدّل الأسعار، وراقب المخزون بشكل فوري.</p>
+          </div>
+          <div class="product-count">
+            عدد المنتجات: <span id="product-count">4</span>
+          </div>
+        </div>
+
+        <div class="admin-grid">
+          <div class="admin-form">
+            <h3 class="form-title">إضافة منتج جديد</h3>
+            <div class="form-grid">
+              <input type="text" id="admin-name" placeholder="اسم المنتج" class="form-input">
+              <div class="form-row">
+                <input type="number" id="admin-price" placeholder="السعر" class="form-input">
+                <input type="number" id="admin-stock" placeholder="الكمية" class="form-input">
+              </div>
+              <div class="form-row">
+                <input type="text" id="admin-size" placeholder="المقاس أو سعة البطارية" class="form-input">
+                <input type="text" id="admin-brand" placeholder="الشركة المصنعة" class="form-input">
+              </div>
+              <div class="form-row">
+                <input type="text" id="admin-image-url" placeholder="رابط صورة المنتج" class="form-input">
+                <input type="file" id="admin-image-file" accept="image/*" class="file-input">
+              </div>
+              <p class="file-selected" id="file-selected"></p>
+              <input type="text" id="admin-keywords" placeholder="كلمات مفتاحية (افصل بفاصلة)" class="form-input">
+              <select id="admin-type" class="form-select">
+                <option>جنوط</option>
+                <option>بطاريات</option>
+                <option>كوتش</option>
+              </select>
+              <button class="add-btn" id="add-product-btn">أضف المنتج</button>
+            </div>
+          </div>
+
+          <div class="admin-list">
+            <h3 class="form-title">طلبات العملاء</h3>
+            <div class="orders-list" id="orders-list">
+              <p class="empty-orders">لا توجد طلبات بعد.</p>
+            </div>
+          </div>
+          <div class="admin-list">
+            <h3 class="form-title">قائمة المخزون</h3>
+            <div class="inventory-list" id="inventory-list">
+              <!-- Inventory items will be inserted here by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <a href="https://wa.me/201003644366?text=طلب جديد من الفرسان" target="_blank" rel="noreferrer" class="whatsapp-btn">
+      ارسال طلب عبر واتساب
+    </a>
+  </main>
+
+  <div class="notification hidden" id="notification">
+    <p>هناك طلب جديد الآن!</p>
+    <button class="notification-close" id="notification-close">إغلاق</button>
+  </div>
+
+  <script src="script-admin.js"></script>
+</body>
+</html>
