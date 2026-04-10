@@ -225,10 +225,10 @@ function renderProducts() {
         <p class="product-size">المقاس: ${product.size}</p>
         <div class="product-footer">
           <div class="product-price-info">
-            <p class="product-price">${product.price} ج.م</p>
-            <p class="product-stock ${product.stock > 0 ? 'available' : 'unavailable'}">
+         <p class="product-price">${product.price} ج.م</p>
+           ${ /*  <p class="product-stock ${product.stock > 0 ? 'available' : 'unavailable'}">
               ${product.stock > 0 ? (product.stock === 1 ? 'متبقي قطعة واحدة فقط' : `متوفر في المخزن (${product.stock})`) : "نفذت الكمية"}
-            </p>
+            </p>*/}
           </div>
           <button class="add-to-cart-btn" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
             أضف للسلة
