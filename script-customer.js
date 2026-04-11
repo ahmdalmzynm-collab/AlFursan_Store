@@ -1,3 +1,5 @@
+// --- كودك الأصلي بالكامل (بدون حذف حرف واحد) ---
+
 // Data
 const initialProducts = [
   {
@@ -135,6 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCustomerOrders();
   updateTotal();
   updateNotice();
+
+  // --- تشغيل ميزة المزامنة الجديدة من السيرفر ---
+  syncProductsFromServer();
 
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => setFilter(btn.dataset.filter));
@@ -467,4 +472,36 @@ function setNotice(message) {
 
 function updateNotice() {
   noticeEl.textContent = notice;
+}
+
+// --- الميزة الجديدة: مزامنة المنتجات من السيرفر (قاعدة بيانات Postgres) ---
+async function syncProductsFromServer() {
+  try {
+    const response = await fetch('/api/products');
+    if (response.ok) {
+      const serverProducts = await response.json();
+      if (serverProducts.length > 0) {
+        serverProducts.forEach(p => {
+          // نتأكد إن المنتج مش موجود في القائمة الحالية قبل ما نضيفه
+          const alreadyExists = products.some(existing => existing.name === p.name);
+          if (!alreadyExists) {
+            products.unshift({
+              id: `db-${p.id}`, // معرف فريد للمنتجات القادمة من السيرفر
+              name: p.name,
+              type: "منتج جديد",
+              size: "متوفر",
+              brand: "الفرسان",
+              price: parseInt(p.price),
+              stock: 10,
+              image: p.image_url,
+              keywords: [p.name, "مستورد"]
+            });
+          }
+        });
+        renderProducts(); // إعادة عرض المنتجات لتشمل الجديد
+      }
+    }
+  } catch (err) {
+    console.log("السيرفر قيد التشغيل أو هناك مشكلة بسيطة في الاتصال بالمزامنة.");
+  }
 }
