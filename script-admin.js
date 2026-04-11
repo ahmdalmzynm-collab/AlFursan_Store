@@ -237,6 +237,19 @@ function handleAdminAdd() {
   };
 
   products.push(newProduct);
+  
+  // --- إضافة جديدة: إرسال نسخة لقاعدة البيانات الخارجية ---
+  fetch('/api/products', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: newProduct.name,
+      price: newProduct.price.toString(),
+      image_url: newProduct.image
+    })
+  }).then(() => console.log("تم تحديث السيرفر")).catch(err => console.log("خطأ في السيرفر:", err));
+  // -----------------------------------------------------
+
   document.getElementById('admin-name').value = '';
   document.getElementById('admin-price').value = '';
   document.getElementById('admin-stock').value = '';
